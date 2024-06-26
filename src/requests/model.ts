@@ -1,8 +1,12 @@
-import { ModelProps } from "@/typings/models"
+import { GetModelsParams, ModelProps } from "@/typings/models"
 
-export async function getModels(): Promise<ModelProps[]> {
+export async function getModels(
+  params?: GetModelsParams
+): Promise<ModelProps[]> {
   // delay 2 seconds to simulate request to backend
   await new Promise((resolve) => setTimeout(resolve, 2000))
+
+  console.log(params)
 
   return [
     { id: 1, name: "Plataforma 1", tp_model: "driver" },

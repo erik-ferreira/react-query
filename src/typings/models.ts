@@ -5,3 +5,8 @@ export interface ModelProps {
   name: string
   tp_model: TypeModel
 }
+
+export interface GetModelsParams {
+  tp_model: TypeModel
+  order: "asc" | "desc"
+}

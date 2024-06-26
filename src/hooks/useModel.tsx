@@ -4,11 +4,11 @@ import { queryClient } from "@/services/query-client"
 import { createModel, deleteModel, getModels } from "@/requests/model"
 
 import { modelKeys } from "@/defaults/keys/model"
-import { ModelProps } from "@/typings/models"
+import { GetModelsParams, ModelProps } from "@/typings/models"
 
-export function useGetModelList() {
+export function useGetModelList(params?: GetModelsParams) {
   const query = useQuery({
-    queryFn: getModels,
+    queryFn: () => getModels(params),
     queryKey: [modelKeys.list],
   })
 
