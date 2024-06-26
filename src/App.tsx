@@ -8,6 +8,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { ButtonRemoveModel } from "./ButtonRemoveModel"
+
 import { CreateModel } from "./CreateModel"
 
 import { getModels } from "./requests/model"
@@ -31,6 +33,7 @@ export function App() {
               <TableHead>ID</TableHead>
               <TableHead>Nome do modelo</TableHead>
               <TableHead>Tipo de modelo</TableHead>
+              <TableHead>Remover</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -40,6 +43,9 @@ export function App() {
                   <TableCell>{model.id}</TableCell>
                   <TableCell>{model.name}</TableCell>
                   <TableCell>{model.tp_model}</TableCell>
+                  <TableCell>
+                    <ButtonRemoveModel id={model.id} />
+                  </TableCell>
                 </TableRow>
               ))}
           </TableBody>

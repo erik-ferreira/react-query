@@ -19,3 +19,10 @@ export async function createModel(data: ModelProps) {
 
   console.log("data", data)
 }
+
+export async function deleteModel(model_id: number) {
+  // delay 1 seconds to simulate request to backend
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+
+  console.log("model_id", model_id)
+}
