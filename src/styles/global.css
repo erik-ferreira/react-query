@@ -84,5 +84,21 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   gap: 1rem;
+}
+
+.form {
+  border: 1px solid black;
+  padding: 1rem;
+  width: 25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  border-radius: 8px;
+  background-color: #cdf;
 }

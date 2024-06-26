@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { CreateModel } from "./CreateModel"
 
 import { getModels } from "./requests/model-services"
 
@@ -42,6 +43,8 @@ export function App() {
           </TableBody>
         </Table>
       )}
+
+      <CreateModel />
     </main>
   )
 }
