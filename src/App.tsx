@@ -12,10 +12,12 @@ import { CreateModel } from "./CreateModel"
 
 import { getModels } from "./requests/model"
 
+import { modelKeys } from "./defaults/keys/model"
+
 export function App() {
   const { data, isLoading } = useQuery({
     queryFn: getModels,
-    queryKey: ["get-models"],
+    queryKey: [modelKeys.list],
   })
 
   return (
