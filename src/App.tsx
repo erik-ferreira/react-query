@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/table"
 import { CreateModel } from "./CreateModel"
 
-import { getModels } from "./requests/model-services"
+import { getModels } from "./requests/model"
 
 export function App() {
   const { data, isLoading } = useQuery({
