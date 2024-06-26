@@ -1,5 +1,3 @@
-import { useQuery } from "@tanstack/react-query"
-
 import {
   Table,
   TableBody,
@@ -11,16 +9,10 @@ import {
 import { ButtonRemoveModel } from "./ButtonRemoveModel"
 
 import { CreateModel } from "./CreateModel"
-
-import { getModels } from "./requests/model"
-
-import { modelKeys } from "./defaults/keys/model"
+import { useGetModelList } from "./hooks/useModel"
 
 export function App() {
-  const { data, isLoading } = useQuery({
-    queryFn: getModels,
-    queryKey: [modelKeys.list],
-  })
+  const { data, isLoading } = useGetModelList()
 
   return (
     <main>

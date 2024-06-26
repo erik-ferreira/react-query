@@ -1,36 +1,17 @@
 import { useRef } from "react"
-import { useMutation } from "@tanstack/react-query"
 
 import { Input } from "@/components/ui/input"
 
 import { Button } from "./components/ui/button"
 
-import { queryClient } from "./services/query-client"
+import { TypeModel } from "./typings/models"
 
-import { TypeModel, ModelProps } from "./typings/models"
-
-import { createModel } from "./requests/model"
-
-import { modelKeys } from "./defaults/keys/model"
+import { useCreateModel } from "./hooks/useModel"
 
 export function CreateModel() {
   const nameRef = useRef<HTMLInputElement>(null)
 
-  const { mutateAsync: createModelFnc, isPending } = useMutation({
-    mutationFn: createModel,
-    onSuccess(_, variables) {
-      queryClient.setQueryData([modelKeys.list], (data: ModelProps[]) => {
-        return [
-          ...data,
-          {
-            id: variables.id,
-            name: variables.name,
-            tp_model: variables.tp_model,
-          },
-        ]
-      })
-    },
-  })
+  const { mutateAsync: createModelFnc, isPending } = useCreateModel()
 
   function handleSaveModel(type: TypeModel) {
     const name = nameRef.current?.value
